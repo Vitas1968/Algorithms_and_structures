@@ -29,8 +29,10 @@ public class Task1
         int [] salary = new  int[3];
         PrintWriter out = new PrintWriter(System.out);
 
-        int salaryMax=0;
-        int salaryMin=0;
+        int salaryMax;
+        int salaryMin;
+
+        //ввод чисел
 
         for (int i = 0; i < salary.length; i++)
         {
@@ -40,12 +42,15 @@ public class Task1
         salaryMax = salary[0];
         salaryMin = salary[0];
 
+        // определение наибольшего и наименьшего элементов массива
+
         for (int i = 1; i < salary.length; i++)
         {
             if(salaryMax < salary[i])salaryMax=salary[i];
             if(salaryMin > salary[i])salaryMin=salary[i];
 
         }
+        // вывод разницы
 
         out.println( "Difference -> "+ (salaryMax-salaryMin));
         out.flush();
