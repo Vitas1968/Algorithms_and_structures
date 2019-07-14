@@ -39,7 +39,7 @@ public class Clothes
             colorClothes[i] = in.nextInt();
         }
 
-
+// Задача пока не решена!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         out.println( " " );
         out.flush();
