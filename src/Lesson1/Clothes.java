@@ -34,14 +34,14 @@ public class Clothes
         int [] colorClothes = new  int[residents];
         PrintWriter out = new PrintWriter(System.out);
 
-        for (int i = 0; i < watermelons.length; i++)
+        for (int i = 0; i < colorClothes.length; i++)
         {
             colorClothes[i] = in.nextInt();
         }
-        
 
 
-        out.println( " "+ );
+
+        out.println( " " );
         out.flush();
     }
 }
