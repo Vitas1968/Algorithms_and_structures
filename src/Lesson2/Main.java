@@ -22,6 +22,10 @@ public class Main
 //        Arrays.sort(arr);
 //        System.out.println( binaryFind(arr,319));
 
+        //тест замена элемента в указанной позиции
+//        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
+//        print(set(arr,3,555));
+
 
 
     }
@@ -74,5 +78,11 @@ public class Main
             }
         }
         return false;
+    }
+
+    // замена элемента в указанной позиции
+    static int [] set(int [] arr, int index, int item) {
+        arr[index] = item;
+        return arr;
     }
 }
