@@ -7,6 +7,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 
         int array[] = new int[10_000];
 //
@@ -41,7 +42,6 @@ public class Main
        // print(add(arr,5,555));
 
         // поиск элемента
-        //   int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        Arrays.sort(arr);
 //        System.out.println( binaryFind(arr,319));
 
