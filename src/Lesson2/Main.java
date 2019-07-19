@@ -7,30 +7,32 @@ public class Main
 {
     public static void main(String[] args)
     {
-        int array[] = new int[100_000];
-
-
-        for (int i = 0; i <array.length ; i++)
-        {
-            array[i] =  (int) (Math.random()*1000);
-        }
-        //тест сортировка пузырьком с замером времени
-        long startTime = System.nanoTime();
-        bubbleSort(array);
-        long stopTime = System.nanoTime();
-        System.out.println(stopTime-startTime);
-
-        //тест сортировка вставками с замером времени
-        startTime = System.nanoTime();
-        insertionSort(array);
-         stopTime = System.nanoTime();
-        System.out.println(stopTime-startTime);
-
-        //тест сортировка выбором с замером времени
-        startTime = System.nanoTime();
-        selectionSort(array);
-        stopTime = System.nanoTime();
-        System.out.println(stopTime-startTime);
+//        int array[] = new int[100_000];
+//
+//
+//        for (int i = 0; i <array.length ; i++)
+//        {
+//            array[i] =  (int) (Math.random()*1000);
+//        }
+//        //тест сортировка пузырьком с замером времени
+        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
+//        long startTime = System.nanoTime();
+//        bubbleSort(arr);
+//        long stopTime = System.nanoTime();
+//        System.out.println(stopTime-startTime);
+        print(bubbleSort(arr));
+//
+//        //тест сортировка вставками с замером времени
+//        startTime = System.nanoTime();
+//        insertionSort(array);
+//         stopTime = System.nanoTime();
+//        System.out.println(stopTime-startTime);
+//
+//        //тест сортировка выбором с замером времени
+//        startTime = System.nanoTime();
+//        selectionSort(array);
+//        stopTime = System.nanoTime();
+//        System.out.println(stopTime-startTime);
 
 
         // print(arr);
@@ -46,13 +48,18 @@ public class Main
 //        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        print(set(arr,3,555));
 
-//        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
+        //тест удаления элемента из массива со сдвигом элементов на позицию влево
+
+        //int [] arr = {1,1231,21,321,461,319,23,90,87,54};
+//        print(arr);
+//        System.out.println();
 //        print(remove(arr,321));
 
 
 
     }
 
+    // вывод массива
     static void print(int [] arr)
     {
         System.out.print(0+" "+arr[0]+ "  " );
@@ -111,24 +118,25 @@ public class Main
     }
 
     //удаление элемента
-    static int [] remove(int [] arr, Integer item) {
-        int i = 0;
-        while (i < arr.length && arr[i]!=item) {
-            i++;
+    static int [] remove(int [] arr, int item) {
+        int j;
+        int[] tmp= new int[arr.length-1];
+        for(j=0;j<arr.length;j++){ // Поиск удаляемого элемента
+            if(arr[j]==item){
+                break;
+            } else tmp[j] = arr[j];
         }
-        if (i == arr.length-1) {
-            return false;
+
+        for(int k = j;k<tmp.length;k++){
+            // Сдвиг последующих элементов
+            tmp[k] = arr[k+1];
         }
-        for (int j = i; j < arr.length - 1; j++) {
-            arr[j] = arr[j + 1];
-        }
-//        size--;
-//        list[size] = null;
-        return true;
+
+        return tmp;
     }
 
     // сортировка пузырьком
-    public static void bubbleSort(int[] array) {
+    public static int [] bubbleSort(int[] array) {
         boolean sorted = false;
         int temp;
         while(!sorted) {
@@ -142,10 +150,11 @@ public class Main
                 }
             }
         }
+        return array;
     }
 
     //сортировка вставками
-    public static void insertionSort(int[] array) {
+    public static int [] insertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int current = array[i];
             int j = i - 1;
@@ -155,10 +164,11 @@ public class Main
             }
             array[j+1] = current;
         }
+        return array;
     }
 
     // сортировка выбором
-    public static void selectionSort(int[] array) {
+    public static int [] selectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int min = array[i];
             int minId = i;
@@ -173,6 +183,7 @@ public class Main
             array[i] = min;
             array[minId] = temp;
         }
+        return array;
     }
 
 }
