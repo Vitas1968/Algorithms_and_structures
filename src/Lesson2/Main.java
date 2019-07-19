@@ -7,27 +7,28 @@ public class Main
 {
     public static void main(String[] args)
     {
-//        int array[] = new int[100_000];
+
+        int array[] = new int[10_000];
 //
 //
 //        for (int i = 0; i <array.length ; i++)
 //        {
 //            array[i] =  (int) (Math.random()*1000);
 //        }
+
 //        //тест сортировка пузырьком с замером времени
-        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        long startTime = System.nanoTime();
-//        bubbleSort(arr);
+//        bubbleSort(array);
 //        long stopTime = System.nanoTime();
 //        System.out.println(stopTime-startTime);
-        print(bubbleSort(arr));
-//
+
+
 //        //тест сортировка вставками с замером времени
 //        startTime = System.nanoTime();
 //        insertionSort(array);
 //         stopTime = System.nanoTime();
 //        System.out.println(stopTime-startTime);
-//
+
 //        //тест сортировка выбором с замером времени
 //        startTime = System.nanoTime();
 //        selectionSort(array);
@@ -45,12 +46,9 @@ public class Main
 //        System.out.println( binaryFind(arr,319));
 
         //тест замена элемента в указанной позиции
-//        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        print(set(arr,3,555));
 
         //тест удаления элемента из массива со сдвигом элементов на позицию влево
-
-        //int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        print(arr);
 //        System.out.println();
 //        print(remove(arr,321));
