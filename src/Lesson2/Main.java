@@ -7,12 +7,32 @@ public class Main
 {
     public static void main(String[] args)
     {
+        int array[] = new int[100_000];
 
 
-//        for (int i = 0; i <arr.length ; i++)
-//        {
-//           arr[i] =  (int) (Math.random()*1000);
-//        }
+        for (int i = 0; i <array.length ; i++)
+        {
+            array[i] =  (int) (Math.random()*1000);
+        }
+        //тест сортировка пузырьком с замером времени
+        long startTime = System.nanoTime();
+        bubbleSort(array);
+        long stopTime = System.nanoTime();
+        System.out.println(stopTime-startTime);
+
+        //тест сортировка вставками с замером времени
+        startTime = System.nanoTime();
+        insertionSort(array);
+         stopTime = System.nanoTime();
+        System.out.println(stopTime-startTime);
+
+        //тест сортировка выбором с замером времени
+        startTime = System.nanoTime();
+        selectionSort(array);
+        stopTime = System.nanoTime();
+        System.out.println(stopTime-startTime);
+
+
         // print(arr);
         //тест вставки элемента
        // print(add(arr,5,555));
@@ -26,8 +46,8 @@ public class Main
 //        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
 //        print(set(arr,3,555));
 
-        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
-        print(remove(arr,321));
+//        int [] arr = {1,1231,21,321,461,319,23,90,87,54};
+//        print(remove(arr,321));
 
 
 
@@ -64,6 +84,7 @@ public class Main
         return array;
     }
 
+    //поиск элемента
     static boolean binaryFind(int [] arr, Integer item) {
         int lo = 0;
         int hi = arr.length - 1;
