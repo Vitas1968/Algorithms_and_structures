@@ -62,4 +62,20 @@ public class MyLinkedList <Item>
         first = newNode;
         size++;
     }
+
+    // удаляние первого элемента
+    public Item removeFirst() {
+        // проверяем не пустая ли коллекция
+        if (isEmpty()) {
+            return null;
+        }
+        // создаем промежуточный элемент и сохраняем в него ссылку на первый элемент
+        Node oldFirst = first;
+        // первому элементу присваиваем ссылку на следующий
+        first = first.getNext();
+        size--;
+        // из временного элемента возвращаем значение и в дальнейшем
+        // он будет уничтожен GC
+        return (Item) oldFirst.getValue();
+    }
 }
