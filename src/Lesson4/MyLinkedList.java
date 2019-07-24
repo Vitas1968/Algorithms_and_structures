@@ -38,4 +38,7 @@ public class MyLinkedList <Item>
             return value.toString();
         }
     }
+    public boolean isEmpty() {
+        return first == null;
+    }
 }
