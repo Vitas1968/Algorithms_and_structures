@@ -41,4 +41,8 @@ public class MyLinkedList <Item>
     public boolean isEmpty() {
         return first == null;
     }
+
+    public int size() {
+        return size;
+    }
 }
