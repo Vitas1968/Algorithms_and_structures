@@ -53,4 +53,13 @@ public class MyLinkedList <Item>
     public Item getFirst() {
         return (Item) first.getValue();
     }
+
+    // вставка нового элемента в начало коллекции.
+    // Элемент становится первым после вставки.
+    public void insertFirst(Item item) {
+        Node newNode = new Node(item);
+        newNode.setNext(first);
+        first = newNode;
+        size++;
+    }
 }
