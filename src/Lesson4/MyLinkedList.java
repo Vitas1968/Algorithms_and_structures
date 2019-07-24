@@ -38,11 +38,19 @@ public class MyLinkedList <Item>
             return value.toString();
         }
     }
+    // проверка пустая ли коллекция
     public boolean isEmpty() {
         return first == null;
     }
 
+    // количество элементов в коллекции
     public int size() {
         return size;
+    }
+
+    // возвращаем не сам первый элемент, а значение(поле value)
+    // из первого элемента коллекции
+    public Item getFirst() {
+        return (Item) first.getValue();
     }
 }
