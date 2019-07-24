@@ -71,11 +71,25 @@ public class MyLinkedList <Item>
         }
         // создаем промежуточный элемент и сохраняем в него ссылку на первый элемент
         Node oldFirst = first;
-        // первому элементу присваиваем ссылку на следующий
+        // первому элементу присваиваем ссылку на следующий(и он становится первым)
         first = first.getNext();
         size--;
         // из временного элемента возвращаем значение и в дальнейшем
-        // он будет уничтожен GC
+        // он будет уничтожен GC т.к. на него не осталось ссылок
         return (Item) oldFirst.getValue();
+    }
+
+    // получение индекса элемента
+    public int indexOf(Item item) {
+        Node current = first;
+        int index = 0;
+        while (current != null) {
+            if (item.equals(current.getValue())) {
+                return index;
+            }
+            current = current.getNext();
+            index++;
+        }
+        return -1;
     }
 }
