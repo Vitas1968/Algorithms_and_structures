@@ -8,6 +8,7 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
     private Node last;
     private int size = 0;
 
+
     public MyDoubleLinkedList() {
         this.first = null;
         this.last = null;
@@ -18,7 +19,7 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         return new Iter();
     }
 
-    private class Iter implements Iterator<Item>{
+    private class Iter  implements Iterator<Item>{
         Node current = new Node(null,first);
 
         @Override
@@ -30,6 +31,12 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         public Item next() {
             current = current.getNext();
             return (Item) current.getValue();
+        }
+
+        @Override
+        public void remove()
+        {
+           MyDoubleLinkedList.this.removeLast();
         }
     }
 
