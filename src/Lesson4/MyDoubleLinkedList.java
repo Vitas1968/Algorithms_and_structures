@@ -35,7 +35,7 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
 
         @Override
         public void remove()
-        {
+        { // будем удалять последний элемент, можно удалять первый
            MyDoubleLinkedList.this.removeLast();
         }
     }
