@@ -127,6 +127,29 @@ public class MyLinkedList <Item>
         size++;
     }
 
+    // удаление узла по значению
+    public boolean remove(Item item){
+        if(isEmpty()){
+            return false;
+        }
+        if(first.getValue().equals(item)){
+            removeFirst();
+            return true;
+        }
+        Node current = first;
+        while (current.getNext()!= null &&
+                !current.getNext().getValue().equals(item)){
+            current = current.getNext();
+        }
+        if(current.getNext() == null){
+            return false;
+        }
+        current.setNext(current.getNext().getNext());
+        size--;
+        return true;
+    }
+
+
 
     // переопределяем toString
     @Override
