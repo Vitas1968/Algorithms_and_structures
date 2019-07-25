@@ -163,4 +163,28 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
     public boolean contains(Item item) {
         return indexOf(item) > -1;
     }
+
+    public void insert(int index, Item item) {
+        if (index <= 0) {
+            insertFirst(item);
+            return;
+        }
+        if (index >=size) {
+            insertLast(item);
+            return;
+        }
+        Node current = first;
+        int i = 0;
+
+        while (i < index - 1) {
+            current = current.getNext();
+            i++;
+        }
+        Node newNode = new Node(item);
+        newNode.setNext(current.getNext());
+        newNode.setPrevious(current);
+        newNode.getNext().setPrevious(newNode);
+        current.setNext(newNode);
+        size++;
+    }
 }
