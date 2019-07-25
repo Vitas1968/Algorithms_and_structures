@@ -95,4 +95,11 @@ public class MyLinkedList <Item>
         }
         return -1;
     }
+
+    // проверка содержит ли коллекция элемент
+    // обращаемся к методу indexOf(Item item) и если элемент есть в коллекции индекс
+    // по любому будет больше -1(т.е метод вернет true)
+    public boolean contains(Item item) {
+        return indexOf(item) > -1;
+    }
 }
