@@ -119,4 +119,16 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         size--;
         return (Item) oldFirst.getValue();
     }
+
+    public void insertLast(Item item) {
+        Node newNode = new Node(item);
+        if (!isEmpty()) {
+            newNode.setPrevious(last);
+            last.setNext(newNode);
+        } else {
+            first = newNode;
+        }
+        last = newNode;
+        size++;
+    }
 }
