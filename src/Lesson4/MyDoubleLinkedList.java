@@ -12,6 +12,7 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         this.first = null;
         this.last = null;
     }
+
     @Override
     public Iterator<Item> iterator() {
         return new Iter();
@@ -74,5 +75,9 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         public String toString() {
             return value.toString();
         }
+    }
+
+    public boolean isEmpty() {
+        return first == null;
     }
 }
