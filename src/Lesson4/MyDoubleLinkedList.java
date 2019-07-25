@@ -176,7 +176,7 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         Node current = first;
         int i = 0;
 
-        while (i < index - 1) {
+        while (i < index - 2) {
             current = current.getNext();
             i++;
         }
@@ -186,5 +186,31 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         newNode.getNext().setPrevious(newNode);
         current.setNext(newNode);
         size++;
+    }
+
+    public boolean remove(Item item) {
+        if (isEmpty()) {
+            return false;
+        }
+        if (first.getValue().equals(item)) {
+            removeFirst();
+            return true;
+        }
+        Node current = first;
+        while (current != null &&
+                !current.getValue().equals(item)) {
+            current = current.getNext();
+        }
+        if (current.getNext() == null) {
+            return false;
+        }
+        if(current == last){
+            removeLast();
+            return true;
+        }
+        current.getPrevious().setNext(current.getNext());
+        current.getNext().setPrevious(current.getPrevious());
+        size--;
+        return true;
     }
 }
