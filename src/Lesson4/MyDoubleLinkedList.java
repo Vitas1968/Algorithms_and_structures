@@ -92,4 +92,16 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
     public Item getLast() {
         return (Item) last.getValue();
     }
+
+    public void insertFirst(Item item) {
+        Node newNode = new Node(item);
+        newNode.setNext(first);
+        if (!isEmpty()) {
+            first.setPrevious(newNode);
+        } else {
+            last = newNode;
+        }
+        first = newNode;
+        size++;
+    }
 }
