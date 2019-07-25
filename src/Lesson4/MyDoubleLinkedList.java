@@ -80,4 +80,16 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
     public boolean isEmpty() {
         return first == null;
     }
+
+    public int size() {
+        return size;
+    }
+
+    public Item getFirst() {
+        return (Item) first.getValue();
+    }
+
+    public Item getLast() {
+        return (Item) last.getValue();
+    }
 }
