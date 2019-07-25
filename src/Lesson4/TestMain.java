@@ -1,9 +1,12 @@
 package Lesson4;
 
+import java.util.Iterator;
+
 public class TestMain
 {
     public static void main(String[] args)
     {
+       /*
         MyLinkedList <String> myLinkedList = new MyLinkedList <>();
 
         // тест метода insertFirst
@@ -58,6 +61,23 @@ public class TestMain
         System.out.println("Содержание списка после удаления:");
         System.out.println(myLinkedList);
         drawLine();
+        */
+
+       // тест переопределенного iterator.remove();
+        MyDoubleLinkedList myDoubleLinkedList=new MyDoubleLinkedList();
+
+        myDoubleLinkedList.insertFirst("Masha");
+        myDoubleLinkedList.insertFirst("Fedia");
+        myDoubleLinkedList.insertFirst("Vasia");
+        myDoubleLinkedList.insertFirst("Elen");
+        myDoubleLinkedList.insertFirst("Dog");
+        myDoubleLinkedList.insertFirst("Sven");
+        System.out.println(myDoubleLinkedList);
+        drawLine();
+
+        Iterator<String>iterator=myDoubleLinkedList.iterator();
+        iterator.remove();
+        System.out.println(myDoubleLinkedList);
 
 
 
