@@ -213,4 +213,15 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         size--;
         return true;
     }
+
+    @Override
+    public String toString() {
+        Node current = first;
+        StringBuilder s = new StringBuilder();
+        while (current != null) {
+            s.append(current.getValue() + " ");
+            current = current.getNext();
+        }
+        return s.toString();
+    }
 }
