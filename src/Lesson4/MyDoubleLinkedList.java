@@ -146,4 +146,17 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         size--;
         return (Item) oldLast.getValue();
     }
+
+    public int indexOf(Item item) {
+        Node current = first;
+        int index = 0;
+        while (current != null) {
+            if (item.equals(current.getValue())) {
+                return index;
+            }
+            current = current.getNext();
+            index++;
+        }
+        return -1;
+    }
 }
