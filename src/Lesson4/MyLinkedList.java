@@ -102,4 +102,41 @@ public class MyLinkedList <Item>
     public boolean contains(Item item) {
         return indexOf(item) > -1;
     }
+
+    // вставка элемента по индексу
+    // если индекс меньше 0 вставляем в начало
+    // если индекс превышает размер коллекции тр через временную ссылку current
+    // перебираем коллекцию определяя(расчитывая) индекс последнего элемента
+    public void insert(int index, Item item) {
+        if (index <= 0) {
+            insertFirst(item);
+            return;
+        }
+        Node current = first;
+        int i = 0;
+        if (index > size) {
+            index = size;
+        }
+        while(i < index-1){
+            current = current.getNext();
+            i++;
+        }
+        Node newNode= new Node(item);
+        newNode.setNext(current.getNext());
+        current.setNext(newNode);
+        size++;
+    }
+
+
+    // переопределяем toString
+    @Override
+    public String toString() {
+        Node current = first;
+        StringBuilder s= new StringBuilder();
+        while(current != null){
+            s.append(current.getValue()+" ");
+            current = current.getNext();
+        }
+        return s.toString();
+    }
 }
