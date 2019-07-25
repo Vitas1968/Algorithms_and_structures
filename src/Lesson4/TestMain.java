@@ -72,19 +72,33 @@ public class TestMain
         myDoubleLinkedList.insertFirst("Elen");
         myDoubleLinkedList.insertFirst("Dog");
         myDoubleLinkedList.insertFirst("Sven");
-        System.out.println(myDoubleLinkedList);
-        drawLine();
+//        System.out.println(myDoubleLinkedList);
+//        drawLine();
 
         Iterator<String>iterator=myDoubleLinkedList.iterator();
-        iterator.remove();
-        System.out.println(myDoubleLinkedList);
+        //iterator.remove();
+        //System.out.println(myDoubleLinkedList);
+        linkIteratorApp(iterator);
+
 
 
 
     }
+    static void linkIteratorApp (Iterator<String> iterator)
+    {
+
+        iterator.remove();
+
+        drawLine();
+        while (iterator.hasNext())
+        {
+            System.out.print(iterator.next()+" , ");
+        }
+    }
 
     static void drawLine()
     {
+        System.out.println();
         System.out.println("----------------------------------------------------");
     }
 }
