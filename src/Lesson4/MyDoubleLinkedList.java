@@ -159,4 +159,8 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         }
         return -1;
     }
+
+    public boolean contains(Item item) {
+        return indexOf(item) > -1;
+    }
 }
