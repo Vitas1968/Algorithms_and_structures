@@ -131,4 +131,19 @@ public class MyDoubleLinkedList <Item> implements Iterable<Item>
         last = newNode;
         size++;
     }
+
+    public Item removeLast() {
+        if (isEmpty()) {
+            return null;
+        }
+        Node oldLast = last;
+        if (last.getPrevious() != null) {
+            last.getPrevious().setNext(null);
+        } else {
+            first = null;
+        }
+        last = last.getPrevious();
+        size--;
+        return (Item) oldLast.getValue();
+    }
 }
