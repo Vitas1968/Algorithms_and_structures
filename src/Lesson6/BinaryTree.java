@@ -29,4 +29,9 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         }
         return node.size;
     }
+
+    // проверка наличия элементов в коллекции
+    public boolean isEmpty() {
+        return root == null;
+    }
 }
