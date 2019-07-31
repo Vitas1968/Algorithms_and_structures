@@ -17,4 +17,16 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
             size = 1;
         }
     }
+
+    // размер
+    public int size() {
+        return size(root);
+    }
+
+    private int size(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        return node.size;
+    }
 }
