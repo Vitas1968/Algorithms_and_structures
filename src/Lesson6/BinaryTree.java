@@ -134,5 +134,10 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         return max(node.right);
     }
 
+    // поиск максимального ключа
+    public Key maxKey() {
+        return max(root).key;
+    }
+
 
 }
