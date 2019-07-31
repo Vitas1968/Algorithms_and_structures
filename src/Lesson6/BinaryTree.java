@@ -120,5 +120,10 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         return min(node.left);
     }
 
+    // поиск минимального ключа
+    public Key minKey() {
+        return min(root).key;
+    }
+
 
 }
