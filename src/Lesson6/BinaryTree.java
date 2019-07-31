@@ -85,5 +85,32 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         }
     }
 
+    // поместить элемент в дерево
+
+    public void put(Key key, Value value) {
+        isKeyNotNull(key);
+        if (value == null) {
+            //delete(key);
+            return;
+        }
+        root = put(root, key, value);
+    }
+
+    private Node put(Node node, Key key, Value value) {
+        if (node == null) {
+            return new Node(key, value);
+        }
+        int cmp = key.compareTo(node.key);
+        if (cmp == 0) {
+            node.value = value;
+        } else if (cmp < 0) {
+            node.left = put(node.left, key, value);
+        } else {
+            node.right = put(node.right, key, value);
+        }
+        node.size = size(node.left) + size(node.right) + 1;
+        return node;
+    }
+
 
 }
