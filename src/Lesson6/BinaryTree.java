@@ -125,5 +125,14 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         return min(root).key;
     }
 
+    // поиск максимального элемента
+
+    private Node max(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return max(node.right);
+    }
+
 
 }
