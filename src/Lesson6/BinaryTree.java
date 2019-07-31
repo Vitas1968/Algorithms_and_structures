@@ -42,4 +42,10 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         }
         return true;
     }
+
+    // содержится ли элемент в коллекции
+    public boolean contains(Key key) {
+        isKeyNotNull(key);
+        return get(key) != null;
+    }
 }
