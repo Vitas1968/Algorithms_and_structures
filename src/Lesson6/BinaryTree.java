@@ -1,5 +1,7 @@
 package Lesson6;
 
+import java.util.NoSuchElementException;
+
 public class BinaryTree <Key extends Comparable<Key>, Value>
 {
     private Node root;
@@ -137,6 +139,71 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
     // поиск максимального ключа
     public Key maxKey() {
         return max(root).key;
+    }
+
+    // удаление мимнимального элмента
+
+    public void deleteMin() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        root = deleteMin(root);
+    }
+
+    public Node deleteMin(Node node) {
+        if (node.left == null) {
+            return node.right;
+        }
+        node.left = deleteMin(node.left);
+        node.size = size(node.left) + size(node.right) + 1;
+        return node;
+    }
+
+    //удаление по ключу
+    public void delete(Key key) {
+        isKeyNotNull(key);
+        root = delete(root, key);
+    }
+
+    private Node delete(Node node, Key key) {
+        if (node == null) {
+            return null;
+        }
+        int cmp = key.compareTo(node.key);
+        if (cmp < 0) {
+            node.left = delete(node.left, key);
+        } else if (cmp > 0){
+            node.right = delete(node.right, key);
+        }else{
+            if(node.left == null ){
+                return node.right;
+            }
+            if(node.right == null ){
+                return node.left;
+            }
+            Node temp = node;
+            node = min(node.right);
+            node.right = deleteMin(temp.right);
+            node.left = temp.left;
+        }
+        node.size = size(node.left) + size(node.right) + 1;
+        return node;
+    }
+
+    // переопределяем toString()
+    @Override
+    public String toString() {
+        return "BST{" +
+                toString(root) +
+                '}';
+    }
+
+    private String toString(Node node) {
+        if (node == null) {
+            return "";
+        }
+        return toString(node.left) + " " + node.value.toString()
+                + " " + toString(node.right);
     }
 
 
