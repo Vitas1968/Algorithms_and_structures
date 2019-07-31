@@ -112,5 +112,13 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
         return node;
     }
 
+    // поиск минимального элемента
+    private Node min(Node node) {
+        if (node.left == null) {
+            return node;
+        }
+        return min(node.left);
+    }
+
 
 }
