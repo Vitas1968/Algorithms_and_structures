@@ -3,8 +3,12 @@ package Lesson6;
 import java.util.NoSuchElementException;
 
 public class BinaryTree <Key extends Comparable<Key>, Value>
-{
-    private Node root;
+{ private Node root;
+
+    public Node getRoot()
+    {
+        return root;
+    }
 
     private class Node
     {
@@ -19,6 +23,29 @@ public class BinaryTree <Key extends Comparable<Key>, Value>
             this.key = key;
             this.value = value;
             size = 1;
+        }
+    }
+
+    // проверка сбалансированности дерева
+    public  boolean checkBalanceTree(Node node, int balanceFactor)
+    {
+        if (node==null) return true;
+        return Math.abs(heightOfBinaryTree(node.left)-
+                heightOfBinaryTree(node.right))<=balanceFactor;
+    }
+    // вычисление высоты дерева
+
+    public int heightOfBinaryTree(Node node)
+    {
+
+        if (node == null)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1 + Math.max(heightOfBinaryTree(node.left),
+                            heightOfBinaryTree(node.right));
         }
     }
 
