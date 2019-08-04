@@ -46,4 +46,10 @@ public class BreadthFirstPaths
             }
         }
     }
+
+    // была ли посещена вершина
+    public boolean hasPathTo(int v){
+        return marked[v];
+    }
+    
 }
