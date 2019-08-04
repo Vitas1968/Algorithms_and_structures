@@ -32,6 +32,11 @@ public class DepthFirstPaths
             }
         }
     }
-    
+
+    //была ли посещена вершина
+    public boolean hasPathTo(int v){
+        return marked[v];
+    }
+
 }
 
