@@ -1,5 +1,7 @@
 package Lesson7;
 
+import java.util.LinkedList;
+
 public class DepthFirstPaths
 {
     //массив посещенности
@@ -36,6 +38,20 @@ public class DepthFirstPaths
     //была ли посещена вершина
     public boolean hasPathTo(int v){
         return marked[v];
+    }
+
+    // путь до указанной вершины
+    public LinkedList<Integer> pathTo(int v){
+        if(!hasPathTo(v)){
+            return null;
+        }
+        LinkedList<Integer> stack = new LinkedList<>();
+        int vertex = v;
+        while (vertex !=source){
+            stack.push(vertex);
+            vertex = edgeTo[vertex];
+        }
+        return stack;
     }
 
 }
