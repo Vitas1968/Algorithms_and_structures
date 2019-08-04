@@ -21,4 +21,16 @@ public class Graph
             adjList[i] = new LinkedList<>();
         }
     }
+    // геттеры
+    public int getVertexCount() {
+        return vertexCount;
+    }
+
+    public int getEdgeCount() {
+        return edgeCount;
+    }
+
+    public LinkedList<Integer> getAdjList(int vertex) {
+        return (LinkedList<Integer>)adjList[vertex].clone();
+    }
 }
