@@ -10,10 +10,28 @@ public class DepthFirstPaths
     private int source;
 
     // конструктор
-    public DepthFirstPaths(Graph g, int source) {
+    public DepthFirstPaths(Graph g, int source)
+    {
         this.source = source;
         edgeTo = new int[g.getVertexCount()];
         marked = new boolean[g.getVertexCount()];
-        dfs(g,source);
+        dfs(g, source);
     }
+
+
+    // собственно поиск
+    private void dfs(Graph g, int v)
+    {
+        marked[v] = true;
+        for (int w : g.getAdjList(v))
+        {
+            if (!marked[w])
+            {
+                edgeTo[w] = v;
+                dfs(g, w);
+            }
+        }
+    }
+    
 }
+
