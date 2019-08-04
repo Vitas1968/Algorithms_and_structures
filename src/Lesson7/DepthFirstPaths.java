@@ -8,4 +8,12 @@ public class DepthFirstPaths
     private int[] edgeTo;
     // исходная вершина с которой начинаем поиск
     private int source;
+
+    // конструктор
+    public DepthFirstPaths(Graph g, int source) {
+        this.source = source;
+        edgeTo = new int[g.getVertexCount()];
+        marked = new boolean[g.getVertexCount()];
+        dfs(g,source);
+    }
 }
