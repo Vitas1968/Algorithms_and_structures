@@ -65,4 +65,9 @@ public class BreadthFirstPaths
         }
         return stack;
     }
+
+    // расстояние до вершины
+    public int distTo(int v){
+        return distTo[v];
+    }
 }
