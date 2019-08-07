@@ -10,7 +10,7 @@ public class ChainingHashMap<Key, Value>
     private int size = 0;
     //сам массив типа связный список
     private LinkedList<Node>[] st;
-    
+
     public ChainingHashMap() {
         st = new LinkedList[capacity];
         for (int i = 0; i < st.length; i++) {
@@ -27,6 +27,13 @@ public class ChainingHashMap<Key, Value>
             this.key = key;
             this.value = value;
         }
+    }
 
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
     }
 }
