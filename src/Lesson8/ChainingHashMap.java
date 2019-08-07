@@ -76,5 +76,16 @@ public class ChainingHashMap<Key, Value>
         }
         return null;
     }
-    
+
+    @Override
+    public String toString() {
+        String s = "";
+        for (int i = 0; i < capacity; i++) {
+            for (Node node : st[i]) {
+                s += node.key.toString() + " ";
+            }
+            s += "\n";
+        }
+        return s;
+    }
 }
