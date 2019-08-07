@@ -36,4 +36,9 @@ public class ChainingHashMap<Key, Value>
     public boolean isEmpty() {
         return size == 0;
     }
+
+    // хэш для ключа
+    public int hash(Key key) {
+        return (key.hashCode() & 0x7FFFFFFF) % capacity;
+    }
 }
