@@ -78,6 +78,23 @@ public class ChainingHashMap<Key, Value>
         return null;
     }
 
+    // метод удаления элемента по ключу
+    public boolean remove(Key key) {
+        isKeyNotNull(key);
+        int i = hash(key);
+        for (Node node : st[i])
+        {
+            if (key.equals(node.key))
+            {
+                st[i].remove(node);
+                size--;
+                return true;
+            }
+        }
+        return  false;
+    }
+
+
     @Override
     public String toString() {
         String s = "";
