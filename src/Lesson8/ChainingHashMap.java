@@ -10,6 +10,13 @@ public class ChainingHashMap<Key, Value>
     private int size = 0;
     //сам массив типа связный список
     private LinkedList<Node>[] st;
+    
+    public ChainingHashMap() {
+        st = new LinkedList[capacity];
+        for (int i = 0; i < st.length; i++) {
+            st[i] = new LinkedList<>();
+        }
+    }
 
     // узел, который везде в мапах называется Entry как я понял
     class Node {
