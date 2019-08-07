@@ -41,4 +41,12 @@ public class ChainingHashMap<Key, Value>
     public int hash(Key key) {
         return (key.hashCode() & 0x7FFFFFFF) % capacity;
     }
+
+    // вспомогательный метод проверки ключа на null
+    private boolean isKeyNotNull(Key key) {
+        if (key == null) {
+            throw new IllegalArgumentException("ключ не может быть null");
+        }
+        return true;
+    }
 }
