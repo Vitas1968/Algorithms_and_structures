@@ -2,6 +2,7 @@ package Lesson8;
 
 import java.util.LinkedList;
 
+// цепочки
 public class ChainingHashMap<Key, Value>
 {
     // размер массива
