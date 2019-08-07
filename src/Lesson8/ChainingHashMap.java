@@ -49,4 +49,32 @@ public class ChainingHashMap<Key, Value>
         }
         return true;
     }
+
+    //метод добавления в массив
+
+    public void put(Key key, Value value) {
+        isKeyNotNull(key);
+        int i = hash(key);
+        for (Node node : st[i]) {
+            if (key.equals(node.key)) {
+                node.value = value;
+                return;
+            }
+        }
+        st[i].addLast(new Node(key, value));
+        size++;
+    }
+
+    // метод получения значения
+    public Value get(Key key) {
+        isKeyNotNull(key);
+        int i = hash(key);
+        for (Node node : st[i]) {
+            if (key.equals(node.key)) {
+                return node.value;
+            }
+        }
+        return null;
+    }
+    
 }
