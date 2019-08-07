@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class ChainingHashMap<Key, Value>
 {
     // размер массива
-    private int capacity = 7;
+    private int capacity = 10;
     // количество элементов в массиве
     private int size = 0;
     //сам массив типа связный список
@@ -79,19 +79,21 @@ public class ChainingHashMap<Key, Value>
     }
 
     // метод удаления элемента по ключу
-    public boolean remove(Key key) {
+    public Value remove(Key key) {
         isKeyNotNull(key);
         int i = hash(key);
+        Node tmp=null;
         for (Node node : st[i])
         {
             if (key.equals(node.key))
             {
+                tmp=node;
                 st[i].remove(node);
                 size--;
-                return true;
+                return tmp.value;
             }
         }
-        return  false;
+        return  null;
     }
 
 
